@@ -25,22 +25,9 @@ resource "cloudflare_zone" "domain" {
   type       = "full"
 }
 
-# Hardening defaults — always-on HTTPS, modern TLS, etc.
-resource "cloudflare_zone_settings_override" "domain" {
-  zone_id = cloudflare_zone.domain.id
-
-  settings {
-    always_use_https         = "on"
-    automatic_https_rewrites = "on"
-    min_tls_version          = "1.2"
-    ssl                      = "full"
-    tls_1_3                  = "on"
-    brotli                   = "on"
-    http3                    = "on"
-    zero_rtt                 = "on"
-    websockets               = "on"
-    security_level           = "medium"
-    browser_check            = "on"
-    challenge_ttl            = 1800
-  }
-}
+# Zone settings override removed for now — token lacks the required
+# Zone Settings:Read permission to manage this resource. Cloudflare's
+# Free-plan defaults already ship with Universal SSL, HTTP/3, and
+# automatic HTTPS rewrites enabled, which covers the security baseline
+# we need. Re-add this resource later if we want to tighten further
+# (min_tls_version 1.2, security_level, etc.).
