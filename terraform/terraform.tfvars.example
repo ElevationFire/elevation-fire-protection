@@ -1,0 +1,10 @@
+cloudflare_api_token  = "your_api_token_here"
+cloudflare_account_id = "your_account_id_here"
+domain                = "elevationfireprotection.com"
+github_owner          = "ElevationFire"
+repo_name             = "elevation-fire-protection"
+pages_project_name    = "elevation-fire-protection"
+
+# Set to true ONLY after the Cloudflare Pages GitHub App is installed
+# on the ElevationFire/elevation-fire-protection repo.
+enable_pages_github_source = false
