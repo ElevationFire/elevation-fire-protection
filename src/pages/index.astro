@@ -1,0 +1,332 @@
+---
+const phoneDisplay = "(720) 382-9669";
+const phoneTel = "tel:7203829669";
+const brand = "Elevation Fire Protection";
+const address = {
+  line1: "8671 E Duke Pl",
+  line2: "Denver, CO 80231",
+};
+const year = new Date().getFullYear();
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>{brand} | Fire Sprinkler Service in Denver, CO</title>
+<meta name="description" content="Elevation Fire Protection — fire sprinkler installation, inspection, and service in Denver and across Colorado & Wyoming. 24/7 emergency response. Locally owned since 2016." />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries" is:inline></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<script id="tailwind-config" is:inline>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-tertiary-fixed-variant": "#43474a",
+          "outline-variant": "#c9c4d3",
+          "surface-bright": "#fcf8f9",
+          "background": "#fcf8f9",
+          "secondary-fixed": "#73f8e0",
+          "on-error-container": "#93000a",
+          "outline": "#787583",
+          "on-secondary-fixed-variant": "#005046",
+          "on-secondary-fixed": "#00201b",
+          "on-primary-fixed": "#190064",
+          "inverse-surface": "#303031",
+          "primary-fixed-dim": "#c8bfff",
+          "surface-tint": "#5d51ac",
+          "on-primary-fixed-variant": "#453992",
+          "error-container": "#ffdad6",
+          "on-surface": "#1b1b1c",
+          "inverse-primary": "#c8bfff",
+          "surface-dim": "#dcd9da",
+          "surface-container-high": "#eae7e8",
+          "primary-fixed": "#e5deff",
+          "on-tertiary-fixed": "#181c1e",
+          "on-tertiary": "#ffffff",
+          "tertiary-container": "#2f3336",
+          "secondary-container": "#70f5dd",
+          "primary-container": "#31227d",
+          "surface-container-low": "#f6f3f4",
+          "tertiary-fixed-dim": "#c3c7ca",
+          "on-secondary-container": "#006f61",
+          "on-primary-container": "#9b8fee",
+          "on-tertiary-container": "#979b9e",
+          "surface-container": "#f0edee",
+          "on-surface-variant": "#484551",
+          "secondary-fixed-dim": "#53dbc4",
+          "primary": "#1b0169",
+          "on-error": "#ffffff",
+          "on-background": "#1b1b1c",
+          "surface-container-highest": "#e5e2e3",
+          "surface": "#fcf8f9",
+          "tertiary": "#1a1e20",
+          "error": "#ba1a1a",
+          "surface-container-lowest": "#ffffff",
+          "inverse-on-surface": "#f3f0f1",
+          "on-secondary": "#ffffff",
+          "secondary": "#006b5d",
+          "surface-variant": "#e5e2e3",
+          "on-primary": "#ffffff",
+          "tertiary-fixed": "#e0e3e6"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "gutter": "24px",
+          "container-max": "1280px",
+          "margin": "32px",
+          "unit": "8px"
+        },
+        "fontFamily": {
+          "h2": ["Public Sans"],
+          "label-caps": ["Public Sans"],
+          "body-lg": ["Public Sans"],
+          "body-md": ["Public Sans"],
+          "h3": ["Public Sans"],
+          "h1": ["Public Sans"]
+        },
+        "fontSize": {
+          "h2": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+          "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+          "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+          "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+          "h1": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+        }
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  body {
+    min-height: max(884px, 100dvh);
+  }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+  <div class="flex justify-between items-center px-4 py-3 max-w-7xl mx-auto">
+    <a href="/" class="flex items-center gap-3" aria-label={brand}>
+      <img src="/logo.png" alt="" class="h-12 w-auto" />
+      <span class="text-xl md:text-2xl font-black text-[#31227D] dark:text-slate-100 font-['Public_Sans'] uppercase tracking-tight leading-none">{brand}</span>
+    </a>
+    <a class="font-['Public_Sans'] font-medium uppercase tracking-tight text-[#31227D] dark:text-slate-100 hover:bg-slate-50 transition-colors px-3 py-1 rounded border border-outline-variant" href={phoneTel}>{phoneDisplay}</a>
+  </div>
+</header>
+<!-- Emergency Callout -->
+<div class="bg-secondary text-on-secondary px-4 py-4 text-center">
+  <div class="flex items-center justify-center gap-2">
+    <span class="material-symbols-outlined text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">emergency</span>
+    <span class="font-label-caps uppercase tracking-wider">24/7 Emergency Service Available</span>
+  </div>
+  <a class="block font-h2 mt-1 text-white" href={phoneTel}>{phoneDisplay}</a>
+</div>
+<!-- Hero Section -->
+<section class="relative bg-primary-container overflow-hidden">
+  <div class="absolute inset-0 opacity-20">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary to-transparent"></div>
+    <img class="w-full h-full object-cover" alt="A professional technician in a clean uniform inspecting a high-tech fire pump system in a modern commercial building." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc3AIMy1Xr-emjHizO8QuaaEdrzYHV6S2Dt1MGomhX9xzJLljXHehGmuik7ioUv63aBKP5Ug00mxe7muvxqyMcAH7iF7bxxIo8qhwpq_Q4LF6xNxTH8Rv8lrpUYK9Y9sagLgyoP7o4DVnHJCVbKOUBhvyFULr6wg_PGmcpuIy0lIty2eqf7hP4yNLTsME8nCc5pBjbUoOLdapD4TRZJ03-rdli3LYoz3b_0JFr28MH5YV7z-CmJ-uH6oyZauxyWN7spXG4SRC1V8TO" />
+  </div>
+  <div class="relative px-6 py-16 md:py-24 max-w-7xl mx-auto flex flex-col items-start gap-6">
+    <span class="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container font-label-caps uppercase rounded">Locally Owned · Denver</span>
+    <h1 class="font-h1 text-white max-w-2xl">19 Years of Expert Fire Protection</h1>
+    <p class="font-body-lg text-on-primary-container max-w-xl">
+      Locally owned and operated. Providing reliable, life-safety solutions across Colorado and Wyoming with technical mastery and unshakeable commitment.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+      <a href={phoneTel} class="bg-[#16B59F] text-primary-container font-h3 py-4 px-8 rounded shadow-lg active:scale-95 transition-transform inline-block text-center">
+        Request Inspection
+      </a>
+      <a href="#services" class="border-2 border-[#16B59F] text-[#16B59F] font-h3 py-4 px-8 rounded active:scale-95 transition-transform inline-block text-center">
+        Our Services
+      </a>
+    </div>
+  </div>
+</section>
+<!-- Specialized Services Grid -->
+<section id="services" class="px-6 py-16 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col gap-2 mb-10">
+      <span class="text-secondary font-label-caps uppercase">Our Expertise</span>
+      <h2 class="font-h2 text-primary-container">Specialized Services</h2>
+      <div class="w-16 h-1 bg-secondary"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="border border-outline-variant p-6 flex flex-col gap-4 group hover:border-secondary transition-colors">
+        <span class="material-symbols-outlined text-[#31227D] text-4xl">fact_check</span>
+        <h3 class="font-h3 text-primary-container">Inspections &amp; Testing</h3>
+        <p class="text-on-surface-variant">Annual, semi-annual, and quarterly NFPA compliance reporting for commercial assets.</p>
+      </div>
+      <div class="border border-outline-variant p-6 flex flex-col gap-4 group hover:border-secondary transition-colors">
+        <span class="material-symbols-outlined text-[#31227D] text-4xl">build</span>
+        <h3 class="font-h3 text-primary-container">Service &amp; Repair</h3>
+        <p class="text-on-surface-variant">Rapid response maintenance for sprinkler systems, backflow, and fire alarm panels.</p>
+      </div>
+      <div class="border border-outline-variant p-6 flex flex-col gap-4 group hover:border-secondary transition-colors">
+        <span class="material-symbols-outlined text-[#31227D] text-4xl">plumbing</span>
+        <h3 class="font-h3 text-primary-container">Fire Pump Testing</h3>
+        <p class="text-on-surface-variant">Comprehensive flow testing and calibration to ensure critical pressure levels.</p>
+      </div>
+      <div class="border border-outline-variant p-6 flex flex-col gap-4 group hover:border-secondary transition-colors">
+        <span class="material-symbols-outlined text-[#31227D] text-4xl">water_drop</span>
+        <h3 class="font-h3 text-primary-container">Backflow Testing</h3>
+        <p class="text-on-surface-variant">Certified technicians providing annual certification and immediate repairs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- The Elevation Advantage -->
+<section class="px-6 py-16 bg-surface-container-low">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+    <div class="w-full md:w-1/2">
+      <div class="relative rounded-lg overflow-hidden border-2 border-white shadow-xl">
+        <img class="w-full aspect-video object-cover" alt="A wide view of the Denver skyline at dusk, with the Rocky Mountains visible in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzdArE_tWmcQqjewn9u69zEENNw6SFYTx7m65w5Bjb5RO9PZhpDVHwXnZwZXPlhxBKu6n0mU9WvMX7vzo4lFa1XwXXR5He7vSMKM8RKvh8clhHM506j7-VglWi9gx5YVhyDdtdE5zXkD9CsSGtBmIvu_TE0YJn6_lQjr0aUsZUT4vumYTS4rjrZE283Ry5ApjpAbzgtEYs9dHThuAdz21kaH55uyJ9T_gfd6Fk_fsxAyKxaDr4mkWy_4R6kFRYEaYxZB-o26FGDORH" />
+      </div>
+    </div>
+    <div class="w-full md:w-1/2 flex flex-col gap-6">
+      <h2 class="font-h2 text-primary-container">The Elevation Advantage</h2>
+      <div class="flex flex-col gap-8">
+        <div class="flex gap-4">
+          <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">location_on</span>
+          <div>
+            <h4 class="font-h3 text-primary-container">Locally Owned</h4>
+            <p class="text-on-surface-variant">We aren't a national conglomerate. We are your neighbors, committed to protecting our local community.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">speed</span>
+          <div>
+            <h4 class="font-h3 text-primary-container">Faster Dispatch</h4>
+            <p class="text-on-surface-variant">Strategic positioning across the Front Range allows us to reach your facility in record time.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">engineering</span>
+          <div>
+            <h4 class="font-h3 text-primary-container">In-house Engineering</h4>
+            <p class="text-on-surface-variant">From design to implementation, our in-house team handles the technical complexity so you don't have to.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- For General Contractors -->
+<section class="px-6 py-16 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col gap-2 mb-10">
+      <span class="text-secondary font-label-caps uppercase">For General Contractors</span>
+      <h2 class="font-h2 text-primary-container">Build Partner, Not Bottleneck</h2>
+      <div class="w-16 h-1 bg-secondary"></div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
+      <div class="border border-outline-variant p-6 flex flex-col gap-3 sm:col-span-2 lg:col-span-2">
+        <span class="material-symbols-outlined text-[#31227D] text-4xl">handshake</span>
+        <h3 class="font-h3 text-primary-container">GC Partnership</h3>
+        <p class="text-on-surface-variant flex-grow">
+          We work with GCs across the Front Range on tenant improvements and new construction — full in-house design, stamped permit drawings, and a crew that hits your schedule without subbing the work out.
+        </p>
+        <a href={phoneTel} class="bg-[#16B59F] text-primary-container font-h3 py-3 px-6 rounded shadow-lg active:scale-95 transition-transform inline-block text-center mt-2">
+          Talk to Us About Your Project
+        </a>
+      </div>
+      <div class="border border-outline-variant p-6 flex flex-col gap-3">
+        <span class="material-symbols-outlined text-[#31227D] text-4xl">domain</span>
+        <h3 class="font-h3 text-primary-container">Tenant Improvements</h3>
+        <p class="text-on-surface-variant">Build-outs and TI sprinkler work scheduled around your trades, signed off in time for occupancy.</p>
+      </div>
+      <div class="border border-outline-variant p-6 flex flex-col gap-3">
+        <span class="material-symbols-outlined text-[#31227D] text-4xl">construction</span>
+        <h3 class="font-h3 text-primary-container">New Construction</h3>
+        <p class="text-on-surface-variant">Ground-up commercial and residential sprinkler installation, from underground fire line to final AHJ walkthrough.</p>
+      </div>
+      <div class="border border-outline-variant p-6 flex flex-col gap-3">
+        <span class="material-symbols-outlined text-[#31227D] text-4xl">draw</span>
+        <h3 class="font-h3 text-primary-container">In-House Design</h3>
+        <p class="text-on-surface-variant">Hydraulic calcs and stamped permit drawings done by our own team — no third-party engineering delays.</p>
+      </div>
+      <div class="border border-outline-variant p-6 flex flex-col gap-3">
+        <span class="material-symbols-outlined text-[#31227D] text-4xl">schedule</span>
+        <h3 class="font-h3 text-primary-container">On Schedule</h3>
+        <p class="text-on-surface-variant">Locally owned means we move when you move. No corporate dispatch queue between your project manager and our crew.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Trust Signals -->
+<section class="px-6 py-12 bg-white border-y border-outline-variant">
+  <div class="max-w-7xl mx-auto text-center">
+    <p class="font-label-caps uppercase text-outline mb-8">Trusted by Industry Leaders</p>
+    <div class="flex flex-wrap justify-center items-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all">
+      <span class="font-h2 text-primary-container tracking-tighter">CBRE</span>
+      <span class="font-h2 text-primary-container tracking-tighter">CAESARS</span>
+      <span class="font-h2 text-primary-container tracking-tighter">SOPRA</span>
+      <div class="flex items-center gap-2 border-l border-outline-variant pl-12">
+        <span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+        <div class="text-left">
+          <p class="font-label-caps text-primary-container">LICENSED &amp;</p>
+          <p class="font-label-caps text-primary-container">INSURED</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#31227D] dark:bg-slate-950 text-white w-full rounded-none border-t border-white/10 flex flex-col gap-8 px-6 py-12">
+  <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-12">
+    <div class="flex flex-col gap-4">
+      <div class="flex items-center gap-3">
+        <img src="/logo.png" alt="" class="h-12 w-auto bg-white p-1 rounded" />
+        <span class="text-lg font-black text-white font-['Public_Sans'] uppercase tracking-tight">{brand}</span>
+      </div>
+      <p class="text-slate-300 text-sm max-w-xs">
+        Locally owned fire sprinkler contractor protecting commercial assets across Colorado and Wyoming since 2016.
+      </p>
+      <div class="flex flex-col gap-1 mt-4">
+        <p class="font-bold text-white">Headquarters</p>
+        <p class="text-slate-300">{address.line1}, {address.line2}</p>
+      </div>
+    </div>
+    <div class="flex flex-col gap-4">
+      <h4 class="font-bold text-white uppercase tracking-wider text-sm">Services</h4>
+      <nav class="flex flex-col gap-2">
+        <a class="text-slate-300 hover:text-[#16B59F] transition-colors text-sm" href="#">Inspections &amp; Testing</a>
+        <a class="text-slate-300 hover:text-[#16B59F] transition-colors text-sm" href="#">Service &amp; Repair</a>
+        <a class="text-slate-300 hover:text-[#16B59F] transition-colors text-sm" href="#">Fire Pump Testing</a>
+        <a class="text-slate-300 hover:text-[#16B59F] transition-colors text-sm" href="#">Backflow Testing</a>
+        <a class="text-slate-300 hover:text-[#16B59F] transition-colors text-sm" href="#">Emergency Services</a>
+      </nav>
+    </div>
+    <div class="flex flex-col gap-4">
+      <h4 class="font-bold text-white uppercase tracking-wider text-sm">24/7 Emergency</h4>
+      <div class="p-4 bg-white/5 border border-white/10 rounded">
+        <p class="text-sm text-slate-300 mb-2">Available anytime, day or night.</p>
+        <a class="text-xl font-bold text-[#16B59F]" href={phoneTel}>{phoneDisplay}</a>
+      </div>
+      <div class="mt-4">
+        <nav class="flex gap-4">
+          <a class="text-slate-300 hover:text-[#16B59F] text-sm" href="#">Privacy Policy</a>
+          <a class="text-slate-300 hover:text-[#16B59F] text-sm" href="#">Contact Us</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto w-full pt-8 border-t border-white/5 text-center">
+    <p class="text-slate-400 text-xs font-['Public_Sans']">© {year} {brand}. Licensed &amp; Insured.</p>
+  </div>
+</footer>
+</body>
+</html>
