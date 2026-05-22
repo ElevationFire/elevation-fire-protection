@@ -1,0 +1,102 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from "../../layouts/Layout.astro";
+import SchemaArticle from "../../components/SchemaArticle.astro";
+import { site } from "../../data/site";
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const pageUrl = `${site.url}/blog/${post.data.slug}/`;
+---
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+  canonicalPath={`/blog/${post.data.slug}/`}
+  ogImage="/logo.png"
+>
+  <SchemaArticle
+    slot="head"
+    title={post.data.title}
+    description={post.data.description}
+    pubDate={post.data.pubDate}
+    author={post.data.author}
+    pageUrl={pageUrl}
+  />
+
+  <div class="max-w-3xl mx-auto px-6 py-16">
+    <header class="mb-10 flex flex-col gap-4">
+      <div class="flex gap-3 flex-wrap">
+        {post.data.tags.map((tag) => (
+          <span class="text-label-caps uppercase font-bold text-secondary">{tag}</span>
+        ))}
+      </div>
+      <h1 class="text-h1 text-primary-container">{post.data.title}</h1>
+      <div class="flex items-center gap-3 text-on-surface-variant text-body-md">
+        <span>{post.data.author}</span>
+        <span aria-hidden="true">·</span>
+        <time datetime={post.data.pubDate.toISOString()}>
+          {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+      </div>
+    </header>
+
+    <div class="blog-content text-body-lg text-on-surface">
+      <Content />
+    </div>
+
+    <footer class="mt-12 pt-8 border-t border-outline-variant">
+      <a href="/blog/" class="text-secondary font-medium hover:underline">← Back to Blog</a>
+    </footer>
+  </div>
+</Layout>
+
+<style is:global>
+  .blog-content h2 {
+    font-size: var(--text-h2);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-primary-container);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .blog-content h3 {
+    font-size: var(--text-h3);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-primary-container);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .blog-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
+  }
+  .blog-content ul,
+  .blog-content ol {
+    margin: 1rem 0 1.25rem;
+    padding-left: 1.5rem;
+  }
+  .blog-content ul { list-style-type: disc; }
+  .blog-content ol { list-style-type: decimal; }
+  .blog-content li { margin-bottom: 0.5rem; line-height: 1.6; }
+  .blog-content a {
+    color: var(--color-secondary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .blog-content strong { font-weight: 600; }
+  .blog-content blockquote {
+    border-left: 4px solid var(--color-secondary);
+    padding-left: 1rem;
+    color: var(--color-on-surface-variant);
+    margin: 1.5rem 0;
+  }
+</style>
