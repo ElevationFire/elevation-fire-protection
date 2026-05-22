@@ -1,0 +1,119 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SchemaService from "../../components/SchemaService.astro";
+import { site, locations } from "../../data/site";
+
+const title = "Fire Pump Testing in Colorado | NFPA 20 / 25 Annual Flow Test";
+const description =
+  "Annual fire pump flow testing, weekly churn test setup, and pump controller service across Denver, Aurora, Boulder, Fort Collins, and Cheyenne. NFPA 20 / 25 compliance, hose stream + pitot tube testing, AHJ-ready reports.";
+
+const faqs = [
+  {
+    q: "How often does NFPA require fire pump testing?",
+    a: "NFPA 25 requires a weekly no-flow churn test on electric pumps (monthly for diesel) and a full annual flow test at 0%, 100%, and 150% of rated capacity. Both must be documented and available to the AHJ.",
+  },
+  {
+    q: "Do you bring your own test equipment?",
+    a: "Yes. We arrive with calibrated pitot tubes, hose monsters or flow meters, calibrated gauges, and the required hose stream apparatus. Calibration certificates are available on request for AHJ submittal.",
+  },
+  {
+    q: "What if my fire pump fails the annual test?",
+    a: "We document the failure, identify the root cause (impeller wear, controller fault, suction issue, transfer switch problem), and quote remediation on the spot. Most issues we can resolve within the same visit or with one return trip.",
+  },
+  {
+    q: "Can you test diesel-driven fire pumps?",
+    a: "Yes — diesel, electric, and dual-drive arrangements. We service Clarke, Cummins, John Deere, and Caterpillar drivers and Eaton, Tornatech, Master, and Firetrol controllers.",
+  },
+];
+---
+<Layout title={title} description={description} canonicalPath="/services/fire-pump-testing/">
+  <SchemaService
+    slot="head"
+    name="Fire Pump Testing"
+    description={description}
+    slug="fire-pump-testing"
+    faqs={faqs}
+  />
+
+  <section class="bg-primary-container px-6 py-16 md:py-20">
+    <div class="max-w-7xl mx-auto flex flex-col gap-4">
+      <span class="text-label-caps uppercase font-bold text-secondary">Service · NFPA 20 / 25</span>
+      <h1 class="text-h1 font-bold text-white max-w-3xl">Fire Pump Testing &amp; Service</h1>
+      <p class="text-body-lg text-on-primary-container max-w-2xl">
+        Annual 3-point flow tests, weekly churn test setup, pump controller diagnostics, and full system commissioning for diesel and electric fire pumps across Colorado and Wyoming.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 mt-4">
+        <a href={site.phoneTel} class="bg-brand-accent text-primary-container text-h3 font-semibold py-3 px-6 rounded inline-block">Schedule Test</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-white">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-h2 font-bold text-primary-container mb-2">Annual Flow Test</h2>
+        <div class="w-12 h-1 bg-secondary mb-6"></div>
+        <p class="text-on-surface-variant mb-4">
+          Per NFPA 25 Chapter 8, we run your pump at three operating points and verify against the original pump curve:
+        </p>
+        <ul class="flex flex-col gap-3 text-on-surface-variant">
+          <li class="flex gap-3"><span class="text-secondary font-bold">0%</span>Churn / no-flow — verify shutoff pressure</li>
+          <li class="flex gap-3"><span class="text-secondary font-bold">100%</span>Rated capacity — verify rated pressure</li>
+          <li class="flex gap-3"><span class="text-secondary font-bold">150%</span>Overload — verify minimum 65% rated pressure</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-h2 font-bold text-primary-container mb-2">What's Tested</h2>
+        <div class="w-12 h-1 bg-secondary mb-6"></div>
+        <ul class="flex flex-col gap-3 text-on-surface-variant">
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Suction and discharge pressure at all three points</li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Pump room ventilation and ambient temp</li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Controller transfer to alternate power source</li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Jockey pump cut-in / cut-out pressures</li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Diesel: battery, fuel level, starter, exhaust</li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Electric: motor amps, voltage, phase balance</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-h2 font-bold text-primary-container mb-2">Service Area</h2>
+      <div class="w-12 h-1 bg-secondary mb-6"></div>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+        {locations.map((l) => (
+          <a href={`/locations/${l.slug}/`} class="bg-white border border-outline-variant p-4 hover:border-secondary transition-colors">
+            <p class="text-label-caps uppercase font-bold text-secondary">{l.stateCode}</p>
+            <p class="text-h3 font-semibold text-primary-container">{l.city}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-h2 font-bold text-primary-container mb-2">FAQ</h2>
+      <div class="w-12 h-1 bg-secondary mb-10"></div>
+      <div class="flex flex-col gap-4">
+        {faqs.map((f) => (
+          <details class="border border-outline-variant p-6 rounded group">
+            <summary class="text-h3 font-semibold text-primary-container cursor-pointer list-none flex justify-between items-center">
+              {f.q}
+              <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="text-on-surface-variant mt-4">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-primary-container">
+    <div class="max-w-3xl mx-auto text-center flex flex-col gap-6">
+      <h2 class="text-h2 font-bold text-white">Schedule your annual pump test</h2>
+      <a href={site.phoneTel} class="bg-brand-accent text-primary-container text-h3 font-semibold py-4 px-8 rounded inline-block mx-auto">Call {site.phoneDisplay}</a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,37 @@
+---
+import { site, locations } from "../data/site";
+
+interface Props {
+  name: string;
+  description: string;
+  slug: string;
+  faqs?: { q: string; a: string }[];
+}
+const { name, description, slug, faqs = [] } = Astro.props;
+const pageUrl = `${site.url}/services/${slug}/`;
+
+const service = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: name,
+  name,
+  description,
+  url: pageUrl,
+  provider: { "@id": `${site.url}/#business` },
+  areaServed: locations.map((l) => ({ "@type": "City", name: l.city })),
+};
+
+const faqPage = faqs.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    }
+  : null;
+---
+<script type="application/ld+json" set:html={JSON.stringify(service)} />
+{faqPage && <script type="application/ld+json" set:html={JSON.stringify(faqPage)} />}

@@ -1,3 +1,11 @@
 import { defineConfig } from 'astro/config';
+import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 
-export default defineConfig({});
+export default defineConfig({
+  site: 'https://elevationfireprotection.com',
+  integrations: [sitemap()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
+});

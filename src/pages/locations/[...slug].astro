@@ -1,0 +1,104 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import LocationSchema from "../../components/LocationSchema.astro";
+import { site, services, locations } from "../../data/site";
+
+export function getStaticPaths() {
+  return locations.map((loc) => ({
+    params: { slug: loc.slug },
+    props: { loc },
+  }));
+}
+
+const { loc } = Astro.props;
+
+const title = `Fire Sprinkler Service in ${loc.city}, ${loc.stateCode} | ${site.brand}`;
+const description = `${loc.blurb} NFPA 25 inspections, repairs, fire pump testing, backflow certification, and 24/7 emergency response in ${loc.city}, ${loc.state}.`;
+---
+<Layout title={title} description={description} canonicalPath={`/locations/${loc.slug}/`}>
+  <LocationSchema
+    slot="head"
+    city={loc.city}
+    state={loc.state}
+    stateCode={loc.stateCode}
+    geo={loc.geo}
+    slug={loc.slug}
+  />
+
+  <section class="bg-primary-container px-6 py-16 md:py-20">
+    <div class="max-w-7xl mx-auto flex flex-col gap-4">
+      <span class="text-label-caps uppercase font-bold text-secondary">{loc.state}</span>
+      <h1 class="text-h1 font-bold text-white max-w-3xl">Fire Sprinkler Service in {loc.city}</h1>
+      <p class="text-body-lg text-on-primary-container max-w-2xl">{loc.blurb}</p>
+      <div class="flex flex-col sm:flex-row gap-3 mt-4">
+        <a href={site.phoneTel} class="bg-brand-accent text-primary-container text-h3 font-semibold py-3 px-6 rounded inline-block">Call {site.phoneDisplay}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-h2 font-bold text-primary-container mb-2">Services Offered in {loc.city}</h2>
+      <div class="w-12 h-1 bg-secondary mb-10"></div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {services.map((s) => (
+          <a href={`/services/${s.slug}/`} class="border border-outline-variant p-6 flex flex-col gap-3 hover:border-secondary transition-colors">
+            <span class="material-symbols-outlined text-brand-deep text-4xl">{s.icon}</span>
+            <h3 class="text-h3 font-semibold text-primary-container">{s.name}</h3>
+            <p class="text-on-surface-variant text-sm">{s.short}</p>
+            <span class="text-secondary text-label-caps uppercase font-bold mt-auto">Learn more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+      <div>
+        <span class="text-label-caps uppercase font-bold text-secondary">Why {loc.city}</span>
+        <h2 class="text-h2 font-bold text-primary-container mt-2 mb-4">We Know This Market</h2>
+        <p class="text-on-surface-variant mb-3">
+          {loc.city}'s commercial property mix — from older retrofits to ground-up new construction — needs a contractor who understands the local AHJ, the local water utility, and the climate that drives system wear.
+        </p>
+        <p class="text-on-surface-variant">
+          We've been running calls in the {loc.city} market for {site.yearsExperience} years. We know which buildings have antifreeze loops, which water utilities need test reports filed by which day of the month, and which AHJs accept digital submittal.
+        </p>
+      </div>
+      <div class="bg-white border border-outline-variant p-6 flex flex-col gap-3">
+        <h3 class="text-h3 font-semibold text-primary-container">Neighborhoods &amp; Districts We Serve</h3>
+        <ul class="flex flex-col gap-1 text-on-surface-variant">
+          {loc.neighborhoods.map((n) => (
+            <li class="flex gap-2 items-center">
+              <span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">location_on</span>
+              {n}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-h2 font-bold text-primary-container mb-2">Other Service Areas</h2>
+      <div class="w-12 h-1 bg-secondary mb-6"></div>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+        {locations.filter((l) => l.slug !== loc.slug).map((l) => (
+          <a href={`/locations/${l.slug}/`} class="border border-outline-variant p-4 hover:border-secondary transition-colors">
+            <p class="text-label-caps uppercase font-bold text-secondary">{l.stateCode}</p>
+            <p class="text-h3 font-semibold text-primary-container">{l.city}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-primary-container">
+    <div class="max-w-3xl mx-auto text-center flex flex-col gap-6">
+      <h2 class="text-h2 font-bold text-white">Need fire protection in {loc.city}?</h2>
+      <p class="text-body-lg text-on-primary-container">Local crew, local response.</p>
+      <a href={site.phoneTel} class="bg-brand-accent text-primary-container text-h3 font-semibold py-4 px-8 rounded inline-block mx-auto">Call {site.phoneDisplay}</a>
+    </div>
+  </section>
+</Layout>

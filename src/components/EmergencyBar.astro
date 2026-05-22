@@ -1,0 +1,10 @@
+---
+import { site } from "../data/site";
+---
+<div class="bg-secondary text-on-secondary px-4 py-4 text-center">
+  <div class="flex items-center justify-center gap-2">
+    <span class="material-symbols-outlined text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">emergency</span>
+    <span class="text-label-caps uppercase tracking-wider font-bold">{site.emergency}</span>
+  </div>
+  <a class="block text-h2 font-bold mt-1 text-white" href={site.phoneTel}>{site.phoneDisplay}</a>
+</div>

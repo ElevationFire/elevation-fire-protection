@@ -1,0 +1,40 @@
+---
+import { site } from "../data/site";
+
+interface Props {
+  city: string;
+  state: string;
+  stateCode: string;
+  geo: { lat: number; lng: number };
+  slug: string;
+}
+const { city, state, stateCode, geo, slug } = Astro.props;
+const pageUrl = `${site.url}/locations/${slug}/`;
+
+const place = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Fire Sprinkler Services",
+  provider: { "@id": `${site.url}/#business` },
+  areaServed: {
+    "@type": "City",
+    name: city,
+    geo: { "@type": "GeoCoordinates", latitude: geo.lat, longitude: geo.lng },
+    address: { "@type": "PostalAddress", addressLocality: city, addressRegion: stateCode, addressCountry: "US" },
+  },
+  url: pageUrl,
+  description: `Fire sprinkler installation, inspection, testing, and 24/7 emergency repair serving ${city}, ${state}.`,
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+    { "@type": "ListItem", position: 2, name: "Locations", item: `${site.url}/locations/` },
+    { "@type": "ListItem", position: 3, name: city, item: pageUrl },
+  ],
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(place)} />
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
