@@ -1,0 +1,125 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SchemaService from "../../components/SchemaService.astro";
+import { site, locations } from "../../data/site";
+
+const title = "Fire Sprinkler Service & Repair in Denver, CO | 24/7 Emergency Response";
+const description =
+  "24/7 emergency fire sprinkler repair, leak response, and system service across Colorado and Wyoming. Sprinkler heads, valves, backflow, fire alarm panels — Denver-based crew, rapid Front Range dispatch.";
+
+const faqs = [
+  {
+    q: "Do you respond to fire sprinkler leaks after hours?",
+    a: "Yes. We run a 24/7 emergency dispatch for active leaks, frozen system breaks, and water-flow alarms across the Front Range. Same-night response in the Denver metro is standard.",
+  },
+  {
+    q: "Can you shut down the system during business hours?",
+    a: "Yes — with property management coordination, a fire watch in place per NFPA 25, and AHJ notification. We minimize impairment time and document the entire window for insurance and AHJ records.",
+  },
+  {
+    q: "What if a freeze break shut down our building?",
+    a: "Front Range altitude + cold snaps cause repeat freeze damage. We isolate, drain, repair, re-pressurize, and inspect the affected section in one visit when possible — with antifreeze loop verification before we leave.",
+  },
+  {
+    q: "Do you repair both wet and dry sprinkler systems?",
+    a: "Yes. Wet, dry, pre-action, deluge, and antifreeze loops. Our techs carry standard heads, recall-replacement heads, common valve trim, and dry-pipe components on every truck.",
+  },
+];
+---
+<Layout title={title} description={description} canonicalPath="/services/service-and-repair/">
+  <SchemaService
+    slot="head"
+    name="Fire Sprinkler Service & Repair"
+    description={description}
+    slug="service-and-repair"
+    faqs={faqs}
+  />
+
+  <section class="bg-primary-container px-6 py-16 md:py-20">
+    <div class="max-w-7xl mx-auto flex flex-col gap-4">
+      <span class="text-label-caps uppercase font-bold text-secondary">Service · 24/7 Emergency</span>
+      <h1 class="text-h1 font-bold text-white max-w-3xl">Fire Sprinkler Service &amp; Repair</h1>
+      <p class="text-body-lg text-on-primary-container max-w-2xl">
+        Active leaks, freeze breaks, failed valves, alarm trips, recalled heads, deficiency remediation — we resolve fire protection system problems day and night across Colorado and Wyoming.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 mt-4">
+        <a href={site.phoneTel} class="bg-brand-accent text-primary-container text-h3 font-semibold py-3 px-6 rounded inline-block">Call Now</a>
+        <a href="#what-we-fix" class="border border-brand-accent text-brand-accent text-h3 font-semibold py-3 px-6 rounded inline-block">What We Fix</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="what-we-fix" class="px-6 py-16 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-h2 font-bold text-primary-container mb-2">What We Repair</h2>
+      <div class="w-12 h-1 bg-secondary mb-10"></div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          ["Active Leaks", "Pinhole leaks, fitting failures, freeze breaks. Isolated, drained, repaired, re-tested."],
+          ["Failed Valves", "OS&Y, butterfly, ball drip, alarm check, and dry-pipe valves — replace or rebuild."],
+          ["Sprinkler Heads", "Recalled, painted, damaged, or improper-temp heads replaced same-day from truck stock."],
+          ["Backflow Preventers", "RPZ and DCVA repairs, rebuild kits, replacement, and post-repair certification."],
+          ["Fire Pumps", "Diesel and electric pump repairs — controllers, jockey pumps, packing, alignment."],
+          ["Deficiency Remediation", "Punchlist items from your annual inspection knocked out in one scheduled visit."],
+        ].map(([k, v]) => (
+          <div class="border border-outline-variant p-6 flex flex-col gap-2">
+            <h3 class="text-h3 font-semibold text-primary-container">{k}</h3>
+            <p class="text-on-surface-variant text-sm">{v}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="text-label-caps uppercase font-bold text-secondary">Why It Matters Here</span>
+        <h2 class="text-h2 font-bold text-primary-container mt-2 mb-4">Altitude &amp; Cold Are Real</h2>
+        <p class="text-on-surface-variant mb-3">
+          Denver, Boulder, Fort Collins, and Cheyenne sit at altitude with hard freeze cycles. Antifreeze loops degrade, soldered fittings fatigue, and dry-pipe air pressure drifts.
+        </p>
+        <p class="text-on-surface-variant">
+          We've serviced Front Range commercial systems for {site.yearsExperience} years. We know which buildings need freeze-protection inspections in October and which dry-pipe risers need quarterly air checks.
+        </p>
+      </div>
+      <div class="bg-white border border-outline-variant p-6 flex flex-col gap-3">
+        <h3 class="text-h3 font-semibold text-primary-container">When to Call Immediately</h3>
+        <ul class="flex flex-col gap-2 text-on-surface-variant">
+          <li class="flex gap-2"><span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>Active water flow alarm</li>
+          <li class="flex gap-2"><span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>Visible water from ceiling or wall</li>
+          <li class="flex gap-2"><span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>Dry-pipe valve tripped without fire</li>
+          <li class="flex gap-2"><span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>Low pressure on system gauge</li>
+          <li class="flex gap-2"><span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>Fire pump fault or run condition</li>
+        </ul>
+        <a href={site.phoneTel} class="bg-brand-accent text-primary-container text-h3 font-semibold py-3 px-6 rounded mt-3 text-center">Emergency: {site.phoneDisplay}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-h2 font-bold text-primary-container mb-2">FAQ</h2>
+      <div class="w-12 h-1 bg-secondary mb-10"></div>
+      <div class="flex flex-col gap-4">
+        {faqs.map((f) => (
+          <details class="border border-outline-variant p-6 rounded group">
+            <summary class="text-h3 font-semibold text-primary-container cursor-pointer list-none flex justify-between items-center">
+              {f.q}
+              <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="text-on-surface-variant mt-4">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-primary-container">
+    <div class="max-w-3xl mx-auto text-center flex flex-col gap-6">
+      <h2 class="text-h2 font-bold text-white">System problem? Call now.</h2>
+      <p class="text-body-lg text-on-primary-container">24/7 dispatch. Live phone, not voicemail.</p>
+      <a href={site.phoneTel} class="bg-brand-accent text-primary-container text-h3 font-semibold py-4 px-8 rounded inline-block mx-auto">Call {site.phoneDisplay}</a>
+    </div>
+  </section>
+</Layout>

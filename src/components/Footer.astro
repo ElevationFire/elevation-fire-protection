@@ -1,0 +1,47 @@
+---
+import { site, services, locations } from "../data/site";
+const year = new Date().getFullYear();
+---
+<footer class="bg-brand-deep text-white w-full border-t border-white/10 flex flex-col gap-8 px-6 py-12">
+  <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-4 gap-12">
+    <div class="flex flex-col gap-4">
+      <div class="flex items-center gap-3">
+        <img src="/logo.png" alt="" class="h-12 w-auto bg-white p-1 rounded" width="48" height="48" />
+        <span class="text-lg font-black text-white uppercase tracking-tight">{site.brand}</span>
+      </div>
+      <p class="text-slate-300 text-sm max-w-xs">
+        Locally owned fire sprinkler contractor protecting commercial assets across Colorado and Wyoming since {site.founded}.
+      </p>
+      <div class="flex flex-col gap-1 mt-4">
+        <p class="font-bold text-white">Headquarters</p>
+        <p class="text-slate-300">{site.address.street}, {site.address.locality}, {site.address.region} {site.address.postal}</p>
+      </div>
+    </div>
+    <div class="flex flex-col gap-4">
+      <h4 class="font-bold text-white uppercase tracking-wider text-sm">Services</h4>
+      <nav class="flex flex-col gap-2">
+        {services.map((s) => (
+          <a class="text-slate-300 hover:text-brand-accent transition-colors text-sm" href={`/services/${s.slug}/`}>{s.name}</a>
+        ))}
+      </nav>
+    </div>
+    <div class="flex flex-col gap-4">
+      <h4 class="font-bold text-white uppercase tracking-wider text-sm">Service Area</h4>
+      <nav class="flex flex-col gap-2">
+        {locations.map((l) => (
+          <a class="text-slate-300 hover:text-brand-accent transition-colors text-sm" href={`/locations/${l.slug}/`}>{l.city}, {l.stateCode}</a>
+        ))}
+      </nav>
+    </div>
+    <div class="flex flex-col gap-4">
+      <h4 class="font-bold text-white uppercase tracking-wider text-sm">24/7 Emergency</h4>
+      <div class="p-4 bg-white/5 border border-white/10 rounded">
+        <p class="text-sm text-slate-300 mb-2">Available anytime, day or night.</p>
+        <a class="text-xl font-bold text-brand-accent" href={site.phoneTel}>{site.phoneDisplay}</a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto w-full pt-8 border-t border-white/5 text-center">
+    <p class="text-slate-400 text-xs">© {year} {site.brand}. Licensed &amp; Insured.</p>
+  </div>
+</footer>

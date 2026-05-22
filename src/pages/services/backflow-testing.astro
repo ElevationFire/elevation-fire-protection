@@ -1,0 +1,125 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SchemaService from "../../components/SchemaService.astro";
+import { site, locations } from "../../data/site";
+
+const title = "Backflow Testing & Certification in Colorado | RPZ, DCVA, PVB";
+const description =
+  "State of Colorado–certified backflow testers serving Denver, Aurora, Boulder, Fort Collins, and Cheyenne. Annual RPZ, DCVA, and PVB assembly testing with same-day water utility reporting and repair-rebuild capability on site.";
+
+const faqs = [
+  {
+    q: "Why do I need annual backflow testing?",
+    a: "Colorado Department of Public Health and most municipal water utilities (Denver Water, Aurora Water, Boulder PWD, City of Fort Collins Utilities) require annual testing of all reduced-pressure (RPZ) and double-check (DCVA) assemblies protecting the potable water supply. Failure to submit a test report risks water service interruption.",
+    },
+  {
+    q: "Are your testers state-certified?",
+    a: "Yes. Our backflow testers hold current State of Colorado certification and ASSE 5110 credentials. Certificate numbers are included on every test report submitted to your water utility.",
+  },
+  {
+    q: "What if my assembly fails the test?",
+    a: "We carry rebuild kits for the most common Watts, Febco, Wilkins, Apollo, and Conbraco assemblies on our trucks. Most failures are corrected and re-tested the same visit. Replacement assemblies are quoted and scheduled within 48 hours.",
+  },
+  {
+    q: "Do you submit the test report to my water utility?",
+    a: "Yes. We file directly with Denver Water, Aurora Water, Boulder PWD, Fort Collins Utilities, Greeley Water, Cheyenne BoPU, and most Front Range utilities — usually within one business day of testing.",
+  },
+];
+---
+<Layout title={title} description={description} canonicalPath="/services/backflow-testing/">
+  <SchemaService
+    slot="head"
+    name="Backflow Testing & Certification"
+    description={description}
+    slug="backflow-testing"
+    faqs={faqs}
+  />
+
+  <section class="bg-primary-container px-6 py-16 md:py-20">
+    <div class="max-w-7xl mx-auto flex flex-col gap-4">
+      <span class="text-label-caps uppercase font-bold text-secondary">Service · Annual Certification</span>
+      <h1 class="text-h1 font-bold text-white max-w-3xl">Backflow Testing &amp; Certification</h1>
+      <p class="text-body-lg text-on-primary-container max-w-2xl">
+        State of Colorado–certified backflow testing for fire sprinkler systems, irrigation, and potable connections. Same-day reporting to your water utility, on-truck rebuild capability.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 mt-4">
+        <a href={site.phoneTel} class="bg-brand-accent text-primary-container text-h3 font-semibold py-3 px-6 rounded inline-block">Schedule Test</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-h2 font-bold text-primary-container mb-2">Assemblies We Test</h2>
+      <div class="w-12 h-1 bg-secondary mb-10"></div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          ["RPZ", "Reduced Pressure Zone — high-hazard fire and irrigation."],
+          ["DCVA", "Double Check Valve Assembly — low-hazard fire."],
+          ["DCDA", "Double Check Detector Assembly — metered fire service."],
+          ["PVB", "Pressure Vacuum Breaker — irrigation backflow."],
+        ].map(([k, v]) => (
+          <div class="border border-outline-variant p-6 flex flex-col gap-2">
+            <h3 class="text-h3 font-semibold text-primary-container">{k}</h3>
+            <p class="text-on-surface-variant text-sm">{v}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-h2 font-bold text-primary-container mb-2">What's Included</h2>
+        <div class="w-12 h-1 bg-secondary mb-6"></div>
+        <ul class="flex flex-col gap-3 text-on-surface-variant">
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Annual assembly test per ASSE 5110</li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Test cocks lubricated and verified</li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Relief valve discharge measured</li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Test report filed with water utility</li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Tag posted on assembly with date and tester ID</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-h2 font-bold text-primary-container mb-2">Repair Capability</h2>
+        <div class="w-12 h-1 bg-secondary mb-6"></div>
+        <p class="text-on-surface-variant mb-4">
+          Most failed assemblies are rebuildable. We carry kits for:
+        </p>
+        <ul class="flex flex-col gap-2 text-on-surface-variant">
+          <li>Watts Series 909, 957, 007, 909M1</li>
+          <li>Febco 825, 860, 850, 765</li>
+          <li>Wilkins 350, 375, 975, 720A</li>
+          <li>Apollo 4A, RPLF4A, DCLF4A</li>
+          <li>Conbraco / Apollo 40 series</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-h2 font-bold text-primary-container mb-2">FAQ</h2>
+      <div class="w-12 h-1 bg-secondary mb-10"></div>
+      <div class="flex flex-col gap-4">
+        {faqs.map((f) => (
+          <details class="border border-outline-variant p-6 rounded group">
+            <summary class="text-h3 font-semibold text-primary-container cursor-pointer list-none flex justify-between items-center">
+              {f.q}
+              <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="text-on-surface-variant mt-4">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-primary-container">
+    <div class="max-w-3xl mx-auto text-center flex flex-col gap-6">
+      <h2 class="text-h2 font-bold text-white">Backflow due? Get on the schedule.</h2>
+      <a href={site.phoneTel} class="bg-brand-accent text-primary-container text-h3 font-semibold py-4 px-8 rounded inline-block mx-auto">Call {site.phoneDisplay}</a>
+    </div>
+  </section>
+</Layout>

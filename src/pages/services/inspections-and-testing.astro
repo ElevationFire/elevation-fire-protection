@@ -1,0 +1,140 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SchemaService from "../../components/SchemaService.astro";
+import { site, locations } from "../../data/site";
+
+const title = "Fire Sprinkler Inspections & Testing in Colorado | NFPA 25 Compliance";
+const description =
+  "NFPA 25 fire sprinkler inspections and testing across Denver, Aurora, Boulder, Fort Collins, and Cheyenne. Quarterly, semi-annual, and annual reports for commercial assets — accepted by AHJs across the Front Range.";
+
+const faqs = [
+  {
+    q: "How often does NFPA 25 require fire sprinkler inspections?",
+    a: "NFPA 25 mandates weekly, monthly, quarterly, semi-annual, annual, and 5-year inspection cycles depending on the component. Most commercial buildings need a documented quarterly visual inspection and a full annual inspection with flow testing to remain compliant.",
+  },
+  {
+    q: "Will my insurance carrier accept your inspection reports?",
+    a: "Yes. We deliver NFPA 25-compliant reports formatted for FM Global, Travelers, Liberty Mutual, Chubb, and standard commercial property carriers, including all required tags and AHJ submittal documents.",
+  },
+  {
+    q: "How long does a typical commercial fire sprinkler inspection take?",
+    a: "A standard quarterly visual runs 45–90 minutes per riser. Annual inspections including main drain test, alarm test, and inspector's test typically take 2–4 hours for a single-system commercial building.",
+  },
+  {
+    q: "Do you handle multi-site portfolios for property managers?",
+    a: "Yes. We schedule and route property portfolios across the Front Range with consolidated reporting per portfolio, per building, or per system depending on how your asset team tracks compliance.",
+  },
+];
+---
+<Layout title={title} description={description} canonicalPath="/services/inspections-and-testing/">
+  <SchemaService
+    slot="head"
+    name="Fire Sprinkler Inspections & Testing"
+    description={description}
+    slug="inspections-and-testing"
+    faqs={faqs}
+  />
+
+  <section class="bg-primary-container px-6 py-16 md:py-20">
+    <div class="max-w-7xl mx-auto flex flex-col gap-4">
+      <span class="text-label-caps uppercase font-bold text-secondary">Service · NFPA 25</span>
+      <h1 class="text-h1 font-bold text-white max-w-3xl">Fire Sprinkler Inspections &amp; Testing</h1>
+      <p class="text-body-lg text-on-primary-container max-w-2xl">
+        Quarterly, semi-annual, and annual NFPA 25 inspections for commercial property owners and managers across Colorado and Wyoming. Documented, AHJ-ready, insurance-carrier accepted.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 mt-4">
+        <a href={site.phoneTel} class="bg-brand-accent text-primary-container text-h3 font-semibold py-3 px-6 rounded inline-block">Schedule Inspection</a>
+        <a href="#process" class="border border-brand-accent text-brand-accent text-h3 font-semibold py-3 px-6 rounded inline-block">How It Works</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-white">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+      <div>
+        <h2 class="text-h2 font-bold text-primary-container mb-2">What's Included</h2>
+        <div class="w-12 h-1 bg-secondary mb-6"></div>
+      </div>
+      <div class="md:col-span-2 grid sm:grid-cols-2 gap-6">
+        {[
+          ["Visual inspection of all sprinklers, piping, valves, gauges, and supports per NFPA 25 Chapter 5"],
+          ["Main drain test + water flow alarm test on every wet system"],
+          ["Inspector's test connection flow + dry pipe trip tests where applicable"],
+          ["Fire department connection inspection and signage check"],
+          ["Antifreeze loop testing + freeze protection verification (critical at altitude)"],
+          ["Backflow preventer assembly testing — certified by State of Colorado"],
+          ["Complete deficiency report with photos, severity classification, and remediation quote"],
+          ["Digital + physical inspection tag, AHJ-submittal-ready report PDF"],
+        ].map(([item]) => (
+          <div class="flex gap-3 items-start">
+            <span class="material-symbols-outlined text-secondary mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            <p class="text-on-surface-variant">{item}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="px-6 py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-h2 font-bold text-primary-container mb-2">Our Process</h2>
+      <div class="w-12 h-1 bg-secondary mb-10"></div>
+      <ol class="grid md:grid-cols-4 gap-6">
+        {[
+          ["Schedule", "We coordinate around your tenants and business hours. After-hours and weekend inspections available."],
+          ["Inspect", "NICET-certified technicians walk every riser, valve, and head with calibrated test equipment."],
+          ["Report", "Deficiencies photographed, classified, and quoted within 48 hours of inspection completion."],
+          ["File", "AHJ submittal handled. Insurance carrier copy delivered. Compliance tag posted on premises."],
+        ].map(([step, desc], i) => (
+          <li class="bg-white border border-outline-variant p-6 flex flex-col gap-3">
+            <span class="text-label-caps uppercase font-bold text-secondary">Step {i + 1}</span>
+            <h3 class="text-h3 font-semibold text-primary-container">{step}</h3>
+            <p class="text-on-surface-variant text-sm">{desc}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-h2 font-bold text-primary-container mb-2">Service Area</h2>
+      <div class="w-12 h-1 bg-secondary mb-6"></div>
+      <p class="text-on-surface-variant mb-6 max-w-2xl">We perform NFPA 25 inspections across the Front Range and into Wyoming.</p>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+        {locations.map((l) => (
+          <a href={`/locations/${l.slug}/`} class="border border-outline-variant p-4 hover:border-secondary transition-colors">
+            <p class="text-label-caps uppercase font-bold text-secondary">{l.stateCode}</p>
+            <p class="text-h3 font-semibold text-primary-container">{l.city}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-h2 font-bold text-primary-container mb-2">FAQ</h2>
+      <div class="w-12 h-1 bg-secondary mb-10"></div>
+      <div class="flex flex-col gap-4">
+        {faqs.map((f) => (
+          <details class="bg-white border border-outline-variant p-6 rounded group">
+            <summary class="text-h3 font-semibold text-primary-container cursor-pointer list-none flex justify-between items-center">
+              {f.q}
+              <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="text-on-surface-variant mt-4">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-primary-container">
+    <div class="max-w-3xl mx-auto text-center flex flex-col gap-6">
+      <h2 class="text-h2 font-bold text-white">Ready to schedule your inspection?</h2>
+      <p class="text-body-lg text-on-primary-container">Same-week scheduling available across most of the Front Range.</p>
+      <a href={site.phoneTel} class="bg-brand-accent text-primary-container text-h3 font-semibold py-4 px-8 rounded inline-block mx-auto">Call {site.phoneDisplay}</a>
+    </div>
+  </section>
+</Layout>

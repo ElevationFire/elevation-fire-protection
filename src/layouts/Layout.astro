@@ -1,0 +1,56 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import EmergencyBar from "../components/EmergencyBar.astro";
+import Footer from "../components/Footer.astro";
+import SchemaLocalBusiness from "../components/SchemaLocalBusiness.astro";
+import { site } from "../data/site";
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  ogImage?: string;
+}
+
+const { title, description, canonicalPath, ogImage = "/logo.png" } = Astro.props;
+const pageUrl = canonicalPath
+  ? `${site.url}${canonicalPath}`
+  : new URL(Astro.url.pathname, site.url).toString();
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={pageUrl} />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={pageUrl} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={site.brand} />
+  <meta property="og:image" content={`${site.url}${ogImage}`} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`${site.url}${ogImage}`} />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <SchemaLocalBusiness pageUrl={pageUrl} />
+  <slot name="head" />
+</head>
+<body class="bg-background text-on-background selection:bg-secondary-container selection:text-on-secondary-container">
+  <Header />
+  <EmergencyBar />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>
