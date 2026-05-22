@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from "../../layouts/Layout.astro";
+import { site } from "../../data/site";
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const title = `Fire Protection Blog | ${site.brand}`;
+const description = "NFPA compliance tips, inspection guides, and fire protection news for commercial property managers and GCs across Colorado and Wyoming.";
+---
+<Layout title={title} description={description} canonicalPath="/blog/">
+  <section class="bg-primary-container px-6 py-16 md:py-20">
+    <div class="max-w-7xl mx-auto flex flex-col gap-4">
+      <span class="text-label-caps uppercase font-bold text-secondary-fixed">Resources</span>
+      <h1 class="text-h1 text-white max-w-2xl">Fire Protection Blog</h1>
+      <p class="text-body-lg text-on-primary-container max-w-xl">
+        NFPA compliance tips, inspection guides, and industry news for commercial property managers and GCs on the Front Range.
+      </p>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-white">
+    <div class="max-w-7xl mx-auto">
+      {posts.length === 0 ? (
+        <p class="text-on-surface-variant text-body-lg">No posts yet — check back soon.</p>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {posts.map((post) => (
+            <article class="border border-outline-variant flex flex-col hover:border-secondary transition-colors">
+              <div class="p-6 flex flex-col gap-3 flex-grow">
+                <div class="flex gap-3 flex-wrap">
+                  {post.data.tags.slice(0, 2).map((tag) => (
+                    <span class="text-label-caps uppercase font-bold text-secondary">{tag}</span>
+                  ))}
+                </div>
+                <h2 class="text-h3 text-primary-container">
+                  <a href={`/blog/${post.data.slug}/`} class="hover:text-secondary transition-colors">
+                    {post.data.title}
+                  </a>
+                </h2>
+                <p class="text-on-surface-variant text-body-md flex-grow">{post.data.description}</p>
+              </div>
+              <div class="px-6 pb-6 flex items-center justify-between">
+                <time class="text-label-caps text-outline" datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </time>
+                <a href={`/blog/${post.data.slug}/`} class="text-secondary font-medium text-sm hover:underline">
+                  Read →
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>
