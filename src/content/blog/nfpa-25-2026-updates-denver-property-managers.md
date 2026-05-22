@@ -7,67 +7,59 @@ slug: nfpa-25-2026-updates-denver-property-managers
 tags: ["NFPA 25", "inspections", "Denver", "property managers", "code update"]
 ---
 
-If you manage commercial property on the Front Range, you have probably heard "NFPA 25" more times than you care to count. It is the standard that governs how your fire sprinkler system gets inspected, tested, and maintained. A new edition comes out every three years. The 2026 edition is the one that matters right now — and it carries several changes that will affect your next inspection, your service contract, and potentially your insurance coverage.
+If you manage commercial property on the Front Range, you've probably heard "NFPA 25" more times than you want. It's the standard that governs how your fire sprinkler system gets inspected, tested, and maintained. A new edition comes out every three years. The 2026 edition has some real changes in it — ones that will show up on your next inspection report if you're not ready for them.
 
-Here is what changed, what it means for your building, and what to do before your next scheduled inspection.
+## Why this edition matters now
 
-## Why This Edition Matters Right Now
+[NFPA 25](https://www.nfpa.org/product/nfpa-25-standard-for-the-inspection-testing-and-maintenance-of-water-based-fire-protection-systems/p0025code) is the enforcement baseline across Colorado, adopted by Denver, Aurora, Boulder, Fort Collins, and most other Front Range jurisdictions. New editions roll into local enforcement over 12 to 18 months. The 2026 updates are working their way in now.
 
-[NFPA 25](https://www.nfpa.org/product/nfpa-25-standard-for-the-inspection-testing-and-maintenance-of-water-based-fire-protection-systems/p0025code) is adopted by fire code authorities across Colorado, including Denver, Aurora, Boulder, and Fort Collins. Each new edition becomes the enforceable baseline once local Authorities Having Jurisdiction (AHJs) adopt it. Most Front Range jurisdictions adopt new editions on a rolling basis, meaning the 2026 updates will work their way into local enforcement over the next 12 to 18 months.
+That's a short window. If you get ahead of this, your next inspection goes smoothly. If you don't, you're scrambling to fix deficiencies under a deadline.
 
-That is a short runway. Getting ahead of these requirements now means your next annual inspection will not surface surprises — and you will not be racing to schedule corrective work before a certificate renewal deadline.
+## Dry pipe and deluge valves: new annual internal inspection
 
-## Dry Pipe and Deluge Valves: New Annual Internal Inspection
+Under the 2026 edition, dry pipe valves, pre-action valves, and deluge valves all require annual internal inspections. Previously the cycle was less frequent for most of these. Now it's every year.
 
-This is the change that will affect the most commercial buildings in Denver.
+What that looks like in practice: a technician opens the valve, inspects the internals for corrosion, debris, and seal condition, and documents everything. It takes more time than a standard external visual check, so it'll add labor to your service bill.
 
-Under the 2026 edition, all dry pipe valves, pre-action valves, and deluge valves must receive annual internal inspections. Previously, internal inspections were required on a less frequent cycle for many of these valve types. The new requirement applies every year.
-
-What does that mean in practice? A qualified technician must open, inspect, and document the internal condition of these valves — checking for corrosion, debris, proper seating, and seal integrity. This is a more involved process than the external visual check that most property managers are used to seeing on inspection reports.
-
-If your building has a parking garage, a cold storage area, or any space with a dry or pre-action system — which is common in Front Range commercial buildings given freeze exposure — this change applies to you directly. **Budget for additional labor time on your next service visit and confirm with your contractor that internal valve work is included in their scope.**
+If your building has a parking garage, cold storage, or any unheated area with a dry or pre-action system — common on the Front Range given our winters — this applies to you. Bring it up with your contractor before your next scheduled visit so it's already in their scope.
 
 <!-- INTERNAL LINK: /services/inspections-and-testing/ -->
 
-## Corrosion Mitigation Systems Are Now Enforceable
+## Corrosion mitigation is now enforceable
 
-Corrosion inside sprinkler pipe is a slow but serious problem. Oxygen and bacteria eat steel pipe from the inside, creating pinhole leaks and eventually compromising system integrity. Over the past decade, corrosion mitigation systems — nitrogen generators, oxygen scavengers, air venting devices — have become standard on new commercial installations in Colorado.
+Corrosion inside sprinkler pipe is slow, invisible, and eventually a real problem. Oxygen and bacteria eat steel from the inside. You get pinhole leaks, and in worse cases, sections of pipe that can't hold pressure when you actually need them to.
 
-But maintaining those systems has been effectively voluntary under previous editions. Not anymore.
+Corrosion mitigation systems — nitrogen generators, oxygen scavengers, air vents — have been standard on new Colorado installations for years. But maintaining them was largely optional under previous NFPA 25 editions.
 
-The 2026 edition explicitly makes corrosion mitigation systems subject to required inspection and testing under NFPA 25. If your building has one, it must now be included in your Inspection, Testing, and Maintenance (ITM) scope and documented in every service report.
+The 2026 edition changes that. If your building has a corrosion mitigation system, it's now part of required ITM scope and has to show up in your service documentation.
 
-If you are not sure whether your building has a corrosion mitigation system, ask your service contractor to confirm during your next visit. If you do not have one and your system is more than ten years old, it is worth a conversation about whether adding one makes sense. Pipe corrosion is one of the leading causes of sprinkler system failures in Colorado's climate.
+Not sure if you have one? Ask your contractor at the next visit. If you don't, and your system is over ten years old, it's worth asking whether you should.
 
-## Colorado Freeze Events: A New Inspection Protocol
+## Freeze events: there's now a protocol
 
-This one was written for buildings like yours.
+Colorado winters are hard on sprinkler systems. A cold snap in an unheated mechanical room or parking structure can freeze the water in your pipes. Ice cracks fittings. Splits pipe walls. The damage often isn't visible until the system pressurizes.
 
-Colorado's freeze-thaw cycles are hard on fire sprinkler systems. A sustained cold snap — especially in unheated spaces like parking structures, mechanical rooms, and loading docks — can freeze water inside pipe. Ice plugs crack fittings and split pipe walls. The damage is not always visible until the system is pressurized.
+The 2026 edition adds a formal post-freeze inspection protocol. After a significant freeze event, property owners are expected to evaluate whether the system took damage — through hydrostatic testing or ultrasonic pipe evaluation.
 
-The 2026 edition establishes a formal inspection protocol specifically for the period following a freeze event. When temperatures drop low enough to create ice risk inside a building's fire protection system, property owners are now expected to have the system evaluated. This includes hydrostatic testing or ultrasonic evaluation of suspect pipe sections to confirm the system has not been compromised by ice damage.
+This isn't paperwork for its own sake. A system that looks fine after a hard freeze might have a cracked fitting that holds until there's actually a fire. Catching it as a maintenance call is a lot better than finding out the other way.
 
-**This is not just a compliance checkbox.** A sprinkler system that looks intact after a hard freeze may have a hairline crack in a fitting that will fail the next time the system is called into service. Catching that now, when it is a maintenance call, is far better than discovering it during an actual fire event.
+If post-freeze checks aren't already part of your winter procedures, the 2026 edition gives you both the framework and a reason to put them on the calendar.
 
-If post-freeze inspections are not already part of your building's operating procedures, the 2026 edition gives you a clear framework — and a defensible reason to schedule the work before your insurer asks about it.
+## Sprinkler heads: the 50-year rule
 
-## Sprinkler Head Age: The 50-Year Threshold
+Any head that's been in service for 50 years or more has to either be replaced with a fast-response head or pass a thermal sensitivity test proving it still works.
 
-The 2026 edition also addresses older sprinkler heads. Sprinklers that have been in service for 50 years or more must either be replaced with new fast-response heads, or pass a thermal sensitivity test confirming the head still meets response performance requirements.
+For buildings from the 1970s or early 1980s, this isn't theoretical. If the system hasn't been touched since original construction, you may already be past the threshold. Your contractor should have installation dates in your service records. If they don't, ask.
 
-For many Denver commercial buildings constructed in the 1970s and 1980s, this is a real consideration. If your building has never had a full sprinkler head replacement and the system dates to original construction, it may be approaching or past that threshold.
+## Before your next inspection
 
-Your ITM contractor should be tracking installed dates in your service records. If they are not, that is worth addressing. Knowing the age of your heads is basic asset management — and under the 2026 edition, it directly affects your compliance status.
+Four things to sort out with your contractor:
 
-## What This Means for Your Building
+- Internal valve inspections for any dry pipe, pre-action, or deluge valves — confirm it's in their scope
+- Corrosion mitigation equipment, if you have it, documented in the service report
+- A plan for post-freeze evaluations in unheated parts of the building
+- Sprinkler head installation dates on file
 
-Before your next annual inspection, review these four items with your service contractor:
+One conversation now beats a deficiency report later with a correction deadline.
 
-- Confirm that dry pipe, pre-action, or deluge valve internal inspections are included in their scope.
-- Ask whether any corrosion mitigation equipment on-site will be included in the service order and documented.
-- Establish a procedure for post-freeze inspections during winter months, specifically for unheated or partially heated areas.
-- Verify that your service records include sprinkler head installation dates.
-
-Getting ahead of these changes takes one conversation with your contractor. Dealing with them as deficiencies on an inspection report — with a deadline to correct — takes considerably more.
-
-Elevation Fire Protection provides [NFPA 25 inspections and testing](/services/inspections-and-testing/) across Denver, Aurora, Boulder, Fort Collins, and Cheyenne. Our reports are formatted for AHJ submission and accepted by major commercial insurance carriers. If you want to talk through how the 2026 updates apply to your building specifically, call us at (720) 382-9669.
+Elevation Fire Protection does [NFPA 25 inspections](/services/inspections-and-testing/) across Denver, Aurora, Boulder, Fort Collins, and Cheyenne. If you want to talk through what the 2026 updates mean for your specific building, call (720) 382-9669.
