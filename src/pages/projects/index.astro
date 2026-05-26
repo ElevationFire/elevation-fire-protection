@@ -1,0 +1,139 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { site } from "../../data/site";
+
+const title = `Projects | ${site.brand}`;
+const description = "Fire sprinkler projects completed by Elevation Fire Protection across Colorado and Wyoming — new construction, tenant improvements, and commercial installs.";
+
+const projects = [
+  {
+    name: "DTC Office Tower — New Construction",
+    location: "Denver, CO",
+    type: "New Construction",
+    scope: "Full wet pipe sprinkler system design and installation for a 12-story Class A office building. In-house hydraulic calcs, stamped permit drawings, and AHJ coordination through final inspection.",
+    tags: ["New Construction", "Wet Pipe", "High-Rise"],
+    icon: "domain",
+  },
+  {
+    name: "Anschutz Medical Campus — Tenant Improvement",
+    location: "Aurora, CO",
+    type: "Tenant Improvement",
+    scope: "Sprinkler reconfiguration for a 22,000 sq ft lab and office TI. Coordinated with GC around active medical operations — phased work completed without disruption to adjacent occupied space.",
+    tags: ["Tenant Improvement", "Medical", "Phased"],
+    icon: "home_health",
+  },
+  {
+    name: "RiNo Warehouse Conversion",
+    location: "Denver, CO",
+    type: "Retrofit",
+    scope: "Converted an existing dry pipe system to wet pipe during a historic warehouse-to-mixed-use renovation. Designed around exposed architectural ceilings with concealed head placement per ownership requirements.",
+    tags: ["Retrofit", "Wet Pipe", "Historic"],
+    icon: "warehouse",
+  },
+  {
+    name: "Fort Collins Industrial — Fire Pump Install",
+    location: "Fort Collins, CO",
+    type: "Fire Pump",
+    scope: "Designed and installed a diesel fire pump and jockey pump for a new 80,000 sq ft distribution center on the Harmony Corridor. Full controller setup, weekly churn test commissioning, and documentation package.",
+    tags: ["Fire Pump", "Industrial", "New Construction"],
+    icon: "plumbing",
+  },
+  {
+    name: "Pearl Street Retail Block — Annual ITM",
+    location: "Boulder, CO",
+    type: "Inspections & Testing",
+    scope: "Ongoing NFPA 25 inspection and testing contract for a portfolio of six historic retail buildings in downtown Boulder. Consolidated reporting delivered per property and per portfolio.",
+    tags: ["NFPA 25", "Portfolio", "Historic"],
+    icon: "fact_check",
+  },
+  {
+    name: "Cheyenne Business Parkway — Multi-Tenant",
+    location: "Cheyenne, WY",
+    type: "New Construction",
+    scope: "Design-build fire sprinkler system for a new multi-tenant commercial strip. Wyoming-licensed crew handled permitting, installation, and AHJ final for all four tenant spaces in a single mobilization.",
+    tags: ["New Construction", "Wyoming", "Multi-Tenant"],
+    icon: "store",
+  },
+];
+
+const types = ["All", "New Construction", "Tenant Improvement", "Retrofit", "Fire Pump", "Inspections & Testing"];
+---
+<Layout title={title} description={description} canonicalPath="/projects/">
+
+  <!-- Hero -->
+  <section class="bg-primary-container px-6 py-16 md:py-20">
+    <div class="max-w-7xl mx-auto flex flex-col gap-4">
+      <span class="text-label-caps uppercase font-bold text-secondary">Our Work</span>
+      <h1 class="text-h1 font-bold text-white max-w-3xl">Projects</h1>
+      <p class="text-body-lg text-on-primary-container max-w-2xl">
+        From ground-up new construction to tenant improvements and ongoing inspection contracts — a look at the work we do across Colorado and Wyoming.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 mt-4">
+        <a href={site.phoneTel} class="bg-brand-accent text-primary-container text-h3 font-semibold py-3 px-6 rounded inline-block">Talk to Us About Your Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Grid -->
+  <section class="px-6 py-16 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((p) => (
+          <div class="border border-outline-variant flex flex-col hover:border-secondary transition-colors">
+            <div class="p-6 flex flex-col gap-4 flex-grow">
+              <div class="flex items-start justify-between gap-4">
+                <span class="material-symbols-outlined text-brand-deep text-4xl">{p.icon}</span>
+                <span class="text-label-caps uppercase font-bold text-secondary text-right">{p.type}</span>
+              </div>
+              <div>
+                <h2 class="text-h3 font-semibold text-primary-container">{p.name}</h2>
+                <p class="text-sm text-outline mt-1 flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">location_on</span>
+                  {p.location}
+                </p>
+              </div>
+              <p class="text-on-surface-variant text-sm flex-grow">{p.scope}</p>
+              <div class="flex flex-wrap gap-2 mt-auto pt-4 border-t border-outline-variant">
+                {p.tags.map((tag) => (
+                  <span class="text-xs px-2 py-1 bg-surface-container-low text-on-surface-variant rounded">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="px-6 py-12 bg-surface-container-low border-y border-outline-variant">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div class="flex flex-col gap-1">
+        <span class="text-h1 font-black text-primary-container">9+</span>
+        <span class="text-label-caps uppercase text-secondary font-bold">Years in Colorado</span>
+      </div>
+      <div class="flex flex-col gap-1">
+        <span class="text-h1 font-black text-primary-container">500+</span>
+        <span class="text-label-caps uppercase text-secondary font-bold">Projects Completed</span>
+      </div>
+      <div class="flex flex-col gap-1">
+        <span class="text-h1 font-black text-primary-container">5</span>
+        <span class="text-label-caps uppercase text-secondary font-bold">Service Markets</span>
+      </div>
+      <div class="flex flex-col gap-1">
+        <span class="text-h1 font-black text-primary-container">24/7</span>
+        <span class="text-label-caps uppercase text-secondary font-bold">Emergency Response</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="px-6 py-16 bg-primary-container">
+    <div class="max-w-3xl mx-auto text-center flex flex-col gap-6">
+      <h2 class="text-h2 font-bold text-white">Have a project in mind?</h2>
+      <p class="text-body-lg text-on-primary-container">New construction, tenant improvements, or an inspection contract — let's talk through what you need.</p>
+      <a href={site.phoneTel} class="bg-brand-accent text-primary-container text-h3 font-semibold py-4 px-8 rounded inline-block mx-auto">Call {site.phoneDisplay}</a>
+    </div>
+  </section>
+
+</Layout>
