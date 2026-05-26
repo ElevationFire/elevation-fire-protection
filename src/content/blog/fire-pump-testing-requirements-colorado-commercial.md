@@ -1,6 +1,6 @@
 ---
 title: "Fire Pump Testing in Colorado: What Commercial Property Owners Need to Know"
-description: "NFPA 25 requires annual fire pump testing for most commercial buildings. Here's what the test covers, how long it takes, and what happens when a pump fails."
+description: "NFPA 25 requires annual fire pump testing for commercial buildings. What the test covers, how long it takes, and what happens when a pump fails."
 pubDate: 2026-05-25
 author: "Elevation Fire Protection"
 slug: fire-pump-testing-requirements-colorado-commercial
