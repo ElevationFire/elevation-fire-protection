@@ -7,6 +7,8 @@ import { site, services, locations } from "../data/site";
       <img src="/logo.png" alt="" class="h-12 w-auto" width="48" height="48" />
       <span class="text-xl md:text-2xl font-black text-brand-deep uppercase tracking-tight leading-none">{site.brand}</span>
     </a>
+
+    <!-- Desktop nav -->
     <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-brand-deep">
       <div class="relative group">
         <button class="hover:text-secondary transition-colors uppercase tracking-tight">Services</button>
@@ -31,6 +33,110 @@ import { site, services, locations } from "../data/site";
       <a href="/projects/" class="hover:text-secondary transition-colors uppercase tracking-tight">Projects</a>
       <a href="/blog/" class="hover:text-secondary transition-colors uppercase tracking-tight">Blog</a>
     </nav>
-    <a class="font-medium uppercase tracking-tight text-brand-deep hover:bg-slate-50 transition-colors px-3 py-1 rounded border border-outline-variant text-sm md:text-base" href={site.phoneTel}>{site.phoneDisplay}</a>
+
+    <div class="flex items-center gap-3">
+      <a class="font-medium uppercase tracking-tight text-brand-deep hover:bg-slate-50 transition-colors px-3 py-1 rounded border border-outline-variant text-sm md:text-base" href={site.phoneTel}>{site.phoneDisplay}</a>
+
+      <!-- Hamburger button (mobile only) -->
+      <button
+        id="mobile-menu-btn"
+        class="lg:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 rounded hover:bg-slate-100 transition-colors"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="hamburger-line block w-5 h-0.5 bg-brand-deep transition-all duration-300"></span>
+        <span class="hamburger-line block w-5 h-0.5 bg-brand-deep transition-all duration-300"></span>
+        <span class="hamburger-line block w-5 h-0.5 bg-brand-deep transition-all duration-300"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pb-4"
+  >
+    <!-- Services accordion -->
+    <div class="border-b border-slate-100">
+      <button
+        class="mobile-accordion-btn w-full flex justify-between items-center py-3 text-sm font-semibold text-brand-deep uppercase tracking-tight"
+        aria-expanded="false"
+      >
+        Services
+        <svg class="accordion-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div class="accordion-panel hidden pb-2">
+        {services.map((s) => (
+          <a href={`/services/${s.slug}/`} class="block py-2 pl-3 text-sm text-brand-deep hover:text-secondary transition-colors">{s.name}</a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Locations accordion -->
+    <div class="border-b border-slate-100">
+      <button
+        class="mobile-accordion-btn w-full flex justify-between items-center py-3 text-sm font-semibold text-brand-deep uppercase tracking-tight"
+        aria-expanded="false"
+      >
+        Locations
+        <svg class="accordion-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div class="accordion-panel hidden pb-2">
+        {locations.map((l) => (
+          <a href={`/locations/${l.slug}/`} class="block py-2 pl-3 text-sm text-brand-deep hover:text-secondary transition-colors">{l.city}, {l.stateCode}</a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Flat links -->
+    <a href="/projects/" class="block py-3 text-sm font-semibold text-brand-deep uppercase tracking-tight border-b border-slate-100 hover:text-secondary transition-colors">Projects</a>
+    <a href="/blog/" class="block py-3 text-sm font-semibold text-brand-deep uppercase tracking-tight hover:text-secondary transition-colors">Blog</a>
   </div>
 </header>
+
+<script>
+  // Hamburger toggle
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = !menu!.classList.contains('hidden');
+    menu!.classList.toggle('hidden', isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+
+    // Animate hamburger to X
+    const lines = btn.querySelectorAll('.hamburger-line');
+    if (!isOpen) {
+      (lines[0] as HTMLElement).style.transform = 'translateY(8px) rotate(45deg)';
+      (lines[1] as HTMLElement).style.opacity = '0';
+      (lines[2] as HTMLElement).style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      (lines[0] as HTMLElement).style.transform = '';
+      (lines[1] as HTMLElement).style.opacity = '';
+      (lines[2] as HTMLElement).style.transform = '';
+    }
+  });
+
+  // Accordion toggles
+  document.querySelectorAll('.mobile-accordion-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const panel = btn.nextElementSibling as HTMLElement;
+      const chevron = btn.querySelector('.accordion-chevron') as HTMLElement;
+      const isOpen = !panel.classList.contains('hidden');
+      panel.classList.toggle('hidden', isOpen);
+      chevron.style.transform = isOpen ? '' : 'rotate(180deg)';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+
+  // Close mobile menu on resize to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024) {
+      menu!.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
+      const lines = btn?.querySelectorAll('.hamburger-line');
+      lines?.forEach((l) => { (l as HTMLElement).style.transform = ''; (l as HTMLElement).style.opacity = ''; });
+    }
+  });
+</script>
