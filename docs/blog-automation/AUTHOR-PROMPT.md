@@ -31,6 +31,7 @@ They are practical people. They want answers, not poetry. They appreciate someon
 - Empathetic to the reader's actual problem (a failed inspection, a confusing quote, a deadline).
 - Honest about cost ranges and tradeoffs.
 - Never preachy. Never use phrases like "in today's fast-paced world" or "in conclusion." Get to the point.
+- Never use em-dashes (—). Use a comma, period, or rewrite the sentence instead.
 
 ## SUBSTANCE — what to write about
 
@@ -179,6 +180,7 @@ Check before output:
 - [ ] Phone number, if mentioned, is exactly `(720) 382-9669`
 - [ ] No invented statistics, dates, codes, or quotes
 - [ ] No fluff phrases ("in conclusion," "in today's world," "at the end of the day")
+- [ ] No em-dashes (—) anywhere in the post
 - [ ] Plain text — no emojis except where genuinely useful (rare)
 
 If any check fails, rewrite before output.
