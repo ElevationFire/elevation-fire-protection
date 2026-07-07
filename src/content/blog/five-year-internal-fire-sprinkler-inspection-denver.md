@@ -49,13 +49,11 @@ If the internal inspection uncovers significant obstruction, NFPA 25 requires fl
 - **System-wide flushing** if MIC or heavy scale is widespread across multiple zones
 - **Pipe replacement** in sections where corrosion has compromised wall thickness
 
-The cost range is wide. A targeted flush of one or two branch lines might run $800 to $2,500. If MIC has been working on the interior of a steel system for a decade without detection, pipe replacement in the affected zones will cost more. The earlier you catch it, the cheaper the fix.
+The cost range is wide. A targeted flush of one or two branch lines is significantly less expensive than system-wide remediation. If MIC has been working on the interior of a steel system for a decade without detection, pipe replacement in the affected zones will cost considerably more. The earlier you catch it, the cheaper the fix.
 
 One thing property managers sometimes overlook: if the five-year inspection finds a significant obstruction condition, that finding must be documented and reported. An ignored deficiency report is not a compliance strategy. Insurance carriers and AHJs both look at inspection records when something goes wrong.
 
 ## What It Costs and How to Schedule
-
-The inspection itself, opening the system, pulling heads, performing the visual inspection, and producing documentation, typically runs $400 to $900 for a mid-size commercial sprinkler system in the Denver metro. Larger systems, multi-story buildings, and systems with multiple independent zones will cost more.
 
 Scheduling requires some lead time because the inspection takes a portion of the system offline briefly. Summer is a practical window for most Denver properties: the mild weather reduces risk during the brief offline period, and AHJs are generally reachable for permit coordination before their fall inspection rush.
 
