@@ -30,6 +30,13 @@ export const site = {
 
 export const services = [
   {
+    slug: "fire-sprinkler-installation",
+    name: "Fire Sprinkler Installation",
+    short: "Design-build fire sprinkler systems for new construction, tenant finish, and upgrades — NFPA 13.",
+    icon: "sprinkler",
+    nfpa: "NFPA 13",
+  },
+  {
     slug: "inspections-and-testing",
     name: "Inspections & Testing",
     short: "Annual, semi-annual, and quarterly NFPA compliance reporting for commercial assets.",

@@ -1,0 +1,120 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SchemaService from "../../components/SchemaService.astro";
+import { site, locations } from "../../data/site";
+
+const title = "Fire Sprinkler Installation in Colorado | NFPA 13 Design & Install";
+const description =
+  "Fire sprinkler system design and installation across Denver, Aurora, Boulder, Fort Collins, and Cheyenne. NFPA 13 new construction, tenant finish, and system upgrades — hydraulically calculated, permitted, and AHJ-approved.";
+
+const faqs = [
+  {
+    q: "Do you handle design as well as installation?",
+    a: "Yes. We provide full design-build service — hydraulic calculations, stamped shop drawings, permit submittal to the AHJ, installation, and final acceptance testing. You get one accountable contractor from plan to sign-off.",
+  },
+  {
+    q: "Can you install sprinklers in an occupied building?",
+    a: "Yes. Tenant finishes and retrofits are a large part of our work. We phase the installation, coordinate shutdowns with your property manager, and keep the rest of the system in service so the building stays protected and compliant.",
+  },
+  {
+    q: "What types of systems do you install?",
+    a: "Wet, dry, pre-action, and antifreeze systems for commercial, industrial, retail, warehouse, and multi-family projects. We size and hydraulically calculate every job to the occupancy hazard per NFPA 13.",
+  },
+  {
+    q: "Do you pull the permits and handle inspections?",
+    a: "We manage the entire permitting process with your local AHJ, coordinate rough-in and final inspections, and perform the required hydrostatic and acceptance tests so your certificate of occupancy isn't held up.",
+  },
+];
+---
+<Layout title={title} description={description} canonicalPath="/services/fire-sprinkler-installation/">
+  <SchemaService
+    slot="head"
+    name="Fire Sprinkler Installation"
+    description={description}
+    slug="fire-sprinkler-installation"
+    faqs={faqs}
+  />
+
+  <section class="bg-primary-container px-6 py-16 md:py-20">
+    <div class="max-w-7xl mx-auto flex flex-col gap-4">
+      <span class="text-label-caps uppercase font-bold text-secondary">Service · NFPA 13</span>
+      <h1 class="text-h1 font-bold text-white max-w-3xl">Fire Sprinkler Installation &amp; Design</h1>
+      <p class="text-body-lg text-on-primary-container max-w-2xl">
+        Design-build fire sprinkler systems for new construction, tenant finishes, and upgrades across Colorado and Wyoming — hydraulically calculated, permitted, installed, and tested to NFPA 13.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 mt-4">
+        <a href={site.phoneTel} class="bg-brand-accent text-primary-container text-h3 font-semibold py-3 px-6 rounded inline-block">Request a Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-white">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-h2 font-bold text-primary-container mb-2">Design-Build, Start to Finish</h2>
+        <div class="w-12 h-1 bg-secondary mb-6"></div>
+        <p class="text-on-surface-variant mb-4">
+          One contractor from concept to certificate of occupancy — no coordinating between a designer, an installer, and a tester:
+        </p>
+        <ul class="flex flex-col gap-3 text-on-surface-variant">
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Hydraulic calculations &amp; occupancy hazard analysis</li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Stamped shop drawings &amp; AHJ permit submittal</li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Fabrication, installation &amp; overhead coordination</li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Hydrostatic &amp; acceptance testing with the AHJ</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-h2 font-bold text-primary-container mb-2">Systems We Install</h2>
+        <div class="w-12 h-1 bg-secondary mb-6"></div>
+        <ul class="flex flex-col gap-3 text-on-surface-variant">
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Wet pipe systems for commercial &amp; multi-family</li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Dry pipe systems for unheated &amp; freezer spaces</li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Pre-action systems for data centers &amp; sensitive areas</li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Tenant finish &amp; build-out sprinkler modifications</li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>System upgrades, extensions &amp; head relocations</li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>Warehouse, retail, industrial &amp; office occupancies</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-h2 font-bold text-primary-container mb-2">Service Area</h2>
+      <div class="w-12 h-1 bg-secondary mb-6"></div>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+        {locations.map((l) => (
+          <a href={`/locations/${l.slug}/`} class="bg-white border border-outline-variant p-4 hover:border-secondary transition-colors">
+            <p class="text-label-caps uppercase font-bold text-secondary">{l.stateCode}</p>
+            <p class="text-h3 font-semibold text-primary-container">{l.city}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-h2 font-bold text-primary-container mb-2">FAQ</h2>
+      <div class="w-12 h-1 bg-secondary mb-10"></div>
+      <div class="flex flex-col gap-4">
+        {faqs.map((f) => (
+          <details class="border border-outline-variant p-6 rounded group">
+            <summary class="text-h3 font-semibold text-primary-container cursor-pointer list-none flex justify-between items-center">
+              {f.q}
+              <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="text-on-surface-variant mt-4">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-primary-container">
+    <div class="max-w-3xl mx-auto text-center flex flex-col gap-6">
+      <h2 class="text-h2 font-bold text-white">Planning a build or tenant finish?</h2>
+      <a href={site.phoneTel} class="bg-brand-accent text-primary-container text-h3 font-semibold py-4 px-8 rounded inline-block mx-auto">Call {site.phoneDisplay}</a>
+    </div>
+  </section>
+</Layout>
