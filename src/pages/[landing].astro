@@ -1,0 +1,135 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site, services, locations } from "../data/site";
+import { landingPages } from "../data/landingPages";
+
+export function getStaticPaths() {
+  return landingPages.map((page) => ({
+    params: { landing: page.slug },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const canonicalPath = `/${page.slug}/`;
+const pageUrl = `${site.url}${canonicalPath}`;
+
+// Service + FAQ structured data (inline so the URL matches this landing page)
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: page.serviceName,
+  name: page.serviceName,
+  description: page.metaDescription,
+  url: pageUrl,
+  provider: { "@id": `${site.url}/#business` },
+  areaServed: locations.map((l) => ({ "@type": "City", name: l.city })),
+};
+const faqSchema = page.faqs.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: page.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    }
+  : null;
+---
+<Layout title={page.metaTitle} description={page.metaDescription} canonicalPath={canonicalPath}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  {faqSchema && <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+
+  <section class="bg-primary-container px-6 py-16 md:py-20">
+    <div class="max-w-7xl mx-auto flex flex-col gap-4">
+      <span class="text-label-caps uppercase font-bold text-secondary">{page.eyebrow}</span>
+      <h1 class="text-h1 font-bold text-white max-w-3xl">{page.h1}</h1>
+      <p class="text-body-lg text-on-primary-container max-w-2xl">{page.intro}</p>
+      <div class="flex flex-col sm:flex-row gap-3 mt-4">
+        <a href={site.phoneTel} class="bg-brand-accent text-primary-container text-h3 font-semibold py-3 px-6 rounded inline-block">Call {site.phoneDisplay}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-white">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-h2 font-bold text-primary-container mb-2">{page.highlightsHeading}</h2>
+        <div class="w-12 h-1 bg-secondary mb-6"></div>
+        <ul class="flex flex-col gap-3 text-on-surface-variant">
+          {page.highlights.map((h) => (
+            <li class="flex gap-3"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>{h}</li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-h2 font-bold text-primary-container mb-2">{page.detailHeading}</h2>
+        <div class="w-12 h-1 bg-secondary mb-6"></div>
+        {page.detail.map((p) => (
+          <p class="text-on-surface-variant mb-4">{p}</p>
+        ))}
+        {page.relatedServiceSlug && (
+          <a href={`/services/${page.relatedServiceSlug}/`} class="text-secondary text-label-caps uppercase font-bold">Full service details →</a>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-h2 font-bold text-primary-container mb-2">All Fire Protection Services</h2>
+      <div class="w-12 h-1 bg-secondary mb-10"></div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {services.map((s) => (
+          <a href={`/services/${s.slug}/`} class="bg-white border border-outline-variant p-6 flex flex-col gap-3 hover:border-secondary transition-colors">
+            <span class="material-symbols-outlined text-brand-deep text-4xl">{s.icon}</span>
+            <h3 class="text-h3 font-semibold text-primary-container">{s.name}</h3>
+            <p class="text-on-surface-variant text-sm">{s.short}</p>
+            <span class="text-secondary text-label-caps uppercase font-bold mt-auto">Learn more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-h2 font-bold text-primary-container mb-2">Service Area</h2>
+      <div class="w-12 h-1 bg-secondary mb-6"></div>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+        {locations.map((l) => (
+          <a href={`/locations/${l.slug}/`} class="border border-outline-variant p-4 hover:border-secondary transition-colors">
+            <p class="text-label-caps uppercase font-bold text-secondary">{l.stateCode}</p>
+            <p class="text-h3 font-semibold text-primary-container">{l.city}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-h2 font-bold text-primary-container mb-2">FAQ</h2>
+      <div class="w-12 h-1 bg-secondary mb-10"></div>
+      <div class="flex flex-col gap-4">
+        {page.faqs.map((f) => (
+          <details class="border border-outline-variant p-6 rounded group bg-white">
+            <summary class="text-h3 font-semibold text-primary-container cursor-pointer list-none flex justify-between items-center">
+              {f.q}
+              <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="text-on-surface-variant mt-4">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-primary-container">
+    <div class="max-w-3xl mx-auto text-center flex flex-col gap-6">
+      <h2 class="text-h2 font-bold text-white">{page.ctaHeading}</h2>
+      <a href={site.phoneTel} class="bg-brand-accent text-primary-container text-h3 font-semibold py-4 px-8 rounded inline-block mx-auto">Call {site.phoneDisplay}</a>
+    </div>
+  </section>
+</Layout>
