@@ -25,7 +25,7 @@ export const site = {
   ],
   emergency: "24/7 Emergency Service Available",
   description:
-    "Locally owned fire sprinkler contractor providing installation, inspection, testing, repair, and 24/7 emergency service across Colorado and Wyoming since 2016.",
+    "Locally owned fire sprinkler contractor providing installation, inspection, testing, repair, and 24/7 emergency service in Colorado and Wyoming since 2016.",
 };
 
 export const services = [

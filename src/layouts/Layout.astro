@@ -11,9 +11,10 @@ interface Props {
   description: string;
   canonicalPath?: string;
   ogImage?: string;
+  noindex?: boolean;
 }
 
-const { title, description, canonicalPath, ogImage = "/logo.png" } = Astro.props;
+const { title, description, canonicalPath, ogImage = "/logo.png", noindex = false } = Astro.props;
 const pageUrl = canonicalPath
   ? `${site.url}${canonicalPath}`
   : new URL(Astro.url.pathname, site.url).toString();
@@ -26,7 +27,7 @@ const pageUrl = canonicalPath
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={pageUrl} />
-  <meta name="robots" content="index,follow" />
+  <meta name="robots" content={noindex ? "noindex,follow" : "index,follow"} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={pageUrl} />

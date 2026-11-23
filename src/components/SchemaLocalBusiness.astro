@@ -10,7 +10,8 @@ const businessId = `${site.url}/#business`;
 
 const localBusiness = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "Plumber"],
+  "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+  additionalType: "https://en.wikipedia.org/wiki/Fire_sprinkler_system",
   "@id": businessId,
   name: site.brand,
   legalName: site.legalName,
@@ -54,7 +55,18 @@ const localBusiness = {
       itemOffered: { "@type": "Service", name: s.name, url: `${site.url}/services/${s.slug}/` },
     })),
   },
-  sameAs: [],
+  knowsAbout: [
+    "Commercial fire sprinkler systems",
+    "Fire sprinkler installation",
+    "Fire sprinkler inspection and testing",
+    "Fire pump testing",
+    "Backflow prevention testing",
+    "Standpipe systems",
+    "NFPA 13",
+    "NFPA 14",
+    "NFPA 20",
+    "NFPA 25",
+  ],
 };
 
 const webPage = {

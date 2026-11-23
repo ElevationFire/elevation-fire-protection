@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site, services, locations } from "../data/site";
+
+const title = `Page Not Found | ${site.brand}`;
+const description = "The page you're looking for doesn't exist. Find fire sprinkler services and service areas from Elevation Fire Protection.";
+---
+<Layout title={title} description={description} canonicalPath="/404/" noindex>
+  <section class="bg-primary-container px-6 py-16 md:py-20">
+    <div class="max-w-7xl mx-auto">
+      <h1 class="text-h1 text-white max-w-2xl">Page not found</h1>
+      <p class="text-white/80 mt-4 max-w-2xl">
+        That page doesn't exist or has moved. Need help with a sprinkler system right now? Call
+        <a href={site.phoneTel} class="underline font-semibold">{site.phoneDisplay}</a>, available 24/7.
+      </p>
+    </div>
+  </section>
+  <section class="px-6 py-16 bg-white">
+    <div class="max-w-7xl mx-auto grid gap-10 md:grid-cols-2">
+      <div>
+        <h2 class="text-xl font-bold mb-4">Services</h2>
+        <ul class="space-y-2">
+          {services.map((s) => (
+            <li><a href={`/services/${s.slug}/`} class="text-primary hover:underline">{s.name}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold mb-4">Service Areas</h2>
+        <ul class="space-y-2">
+          {locations.map((l) => (
+            <li><a href={`/locations/${l.slug}/`} class="text-primary hover:underline">{l.city}, {l.stateCode}</a></li>
+          ))}
+        </ul>
+        <p class="mt-6"><a href="/" class="text-primary hover:underline">← Back to the homepage</a></p>
+      </div>
+    </div>
+  </section>
+</Layout>

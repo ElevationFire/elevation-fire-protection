@@ -29,7 +29,7 @@ export const landingPages: LandingPage[] = [
     serviceName: "Fire Sprinkler Service & Repair",
     metaTitle: "Fire Sprinkler Service & Repair in Denver, CO | Elevation Fire Protection",
     metaDescription:
-      "Fast fire sprinkler service and repair across Denver. Leak repairs, head replacement, valve work, and 24/7 emergency response from a licensed local contractor.",
+      "Fast fire sprinkler service and repair in Denver. Leak repairs, head replacement, valve work and 24/7 emergency response from a licensed local contractor.",
     intro:
       "When a sprinkler system fails, leaks, or trips into trouble, you need a Denver crew that answers the phone and shows up. We service, troubleshoot, and repair commercial and industrial fire sprinkler systems across the metro — with 24/7 emergency response when a system goes down.",
     highlightsHeading: "What We Service & Repair",
@@ -113,7 +113,7 @@ export const landingPages: LandingPage[] = [
     serviceName: "Fire Pump Testing",
     metaTitle: "Fire Pump Testing in Denver, CO | NFPA 20 / 25 Annual Flow Test",
     metaDescription:
-      "Annual fire pump flow testing in Denver — 3-point flow test, churn test setup, and controller diagnostics for diesel and electric pumps. NFPA 20 / 25, AHJ-ready.",
+      "Annual fire pump flow testing in Denver: 3-point flow test, churn setup and controller diagnostics for diesel and electric pumps. NFPA 20 / 25, AHJ-ready.",
     intro:
       "Your fire pump is the heart of the system — and NFPA 25 requires it proven every year at three flow points. We run full annual flow tests, weekly churn test setups, and pump controller diagnostics for diesel and electric pumps across the Denver metro.",
     highlightsHeading: "What We Test",
@@ -155,7 +155,7 @@ export const landingPages: LandingPage[] = [
     serviceName: "Backflow Testing & Repair",
     metaTitle: "Backflow Testing & Repair in Denver, CO | Certified Annual Testing",
     metaDescription:
-      "Certified backflow testing and repair in Denver. Annual assembly certification, rebuilds, and report filing with your water utility — fire and domestic lines.",
+      "Certified backflow testing and repair in Denver. Annual assembly certification, rebuilds and water utility report filing for fire and domestic lines.",
     intro:
       "Denver Water and metro utilities require annual backflow certification on your fire and domestic assemblies — and they want the report filed on time. Our certified technicians test, repair, and rebuild backflow preventers and handle the paperwork with the utility for you.",
     highlightsHeading: "Backflow Services",
@@ -197,7 +197,7 @@ export const landingPages: LandingPage[] = [
     serviceName: "Fire Sprinkler Systems",
     metaTitle: "Fire Sprinkler Systems in Colorado | Install, Inspect, Service & Repair",
     metaDescription:
-      "Colorado fire sprinkler contractor — design, installation, NFPA 25 inspections, service, repair, fire pump and backflow testing. Denver metro & Front Range, since 2016.",
+      "Colorado fire sprinkler contractor since 2016: design, installation, NFPA 25 inspections, repair, fire pump and backflow testing across the Front Range.",
     intro:
       "Elevation Fire Protection is a locally owned fire sprinkler contractor serving Colorado and Wyoming since 2016. From design and installation to inspections, service, and repair, we're a single accountable partner for the entire life of your fire sprinkler system.",
     highlightsHeading: "Full-Service Fire Protection",

@@ -13,7 +13,7 @@ export function getStaticPaths() {
 const { loc } = Astro.props;
 
 const title = `Fire Sprinkler Service in ${loc.city}, ${loc.stateCode} | ${site.brand}`;
-const description = `${loc.blurb} NFPA 25 inspections, repairs, fire pump testing, backflow certification, and 24/7 emergency response in ${loc.city}, ${loc.state}.`;
+const description = `Fire sprinkler inspections, repair, fire pump and backflow testing, and 24/7 emergency service in ${loc.city}, ${loc.stateCode}. Locally owned since 2016.`;
 ---
 <Layout title={title} description={description} canonicalPath={`/locations/${loc.slug}/`}>
   <LocationSchema

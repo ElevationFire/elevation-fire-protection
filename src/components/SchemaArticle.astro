@@ -4,17 +4,24 @@ interface Props {
   title: string;
   description: string;
   pubDate: Date;
+  updatedDate?: Date;
   author: string;
   pageUrl: string;
 }
-const { title, description, pubDate, author, pageUrl } = Astro.props;
+const { title, description, pubDate, updatedDate, author, pageUrl } = Astro.props;
+const isOrg = author === site.brand;
 const schema = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: title,
   description,
   datePublished: pubDate.toISOString(),
-  author: { "@type": "Organization", name: author, url: site.url },
+  dateModified: (updatedDate ?? pubDate).toISOString(),
+  inLanguage: "en-US",
+  image: `${site.url}/logo.png`,
+  author: isOrg
+    ? { "@type": "Organization", name: author, url: site.url }
+    : { "@type": "Person", name: author, worksFor: { "@id": `${site.url}/#business` } },
   publisher: {
     "@type": "Organization",
     name: site.brand,
